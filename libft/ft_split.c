@@ -20,6 +20,7 @@ static char	**free_all(char ***res)
 		*res++;
 	}
 	free(*res);
+	*res = 0;
 	return (0);
 }
 
