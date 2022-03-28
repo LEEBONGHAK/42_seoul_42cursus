@@ -14,7 +14,7 @@
 
 static char	**free_all(char ***res)
 {
-	while (*res)
+	while (**res)
 	{
 		free(**res);
 		*res++;
