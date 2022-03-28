@@ -14,10 +14,10 @@
 
 static char	**free_all(char ***res)
 {
-	while (**res)
+	while (*res)
 	{
 		free(**res);
-		res++;
+		*res++;
 	}
 	free(*res);
 	return (0);
