@@ -12,14 +12,14 @@
 
 #include <stdlib.h>
 
-static char	**free_all(char **res)
+static char	**free_all(char ***res)
 {
-	while (*res)
+	while (**res)
 	{
-		free(*res);
+		free(**res);
 		res++;
 	}
-	free(res);
+	free(*res);
 	return (0);
 }
 
@@ -97,7 +97,7 @@ char	**ft_split(char const *s, char c)
 			start++;
 		res[i] = set_str(s, start, c);
 		if (!(res[i]))
-			return (free_all(res));
+			return (free_all(&res));
 		start += find_len(s, start, c);
 	}
 	return (res);
