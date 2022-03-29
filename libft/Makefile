@@ -34,8 +34,14 @@ OBJS_B		=	$(BONUS:.c=.o)
 INCLUDE		=	libft.h
 NAME		=	libft.a
 
+.PHONY: bonus
+#ifeq ($(MAKECMDGOALS), bonus)
+$(NAME): $(OBJS) $(OBJS_B)
+	$(AR) $(ARFLAG) $@ $?
+#else
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAG) $@ $?
+#endif
 
 %.o: %.c
 	$(CC) -I $(INCLUDE) $(CFLAG) -c $? -o $@
@@ -53,7 +59,3 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
-
-.PHONY: bonus
-bonus: $(OBJS_B)
-	$(AR) $(ARFLAG) $(NAME) $?
