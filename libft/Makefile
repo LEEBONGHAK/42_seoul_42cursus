@@ -6,7 +6,7 @@
 #    By: bolee <bolee@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/09 16:45:57 by bolee             #+#    #+#              #
-#    Updated: 2022/03/16 15:04:01 by bolee            ###   ########.fr        #
+#    Updated: 2022/03/29 13:13:26 by bolee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,21 +34,20 @@ OBJS_B		=	$(BONUS:.c=.o)
 INCLUDE		=	libft.h
 NAME		=	libft.a
 
-.PHONY: bonus
-#ifeq ($(MAKECMDGOALS), bonus)
+ifeq ($(MAKECMDGOALS), bonus)
 $(NAME): $(OBJS) $(OBJS_B)
 	$(AR) $(ARFLAG) $@ $?
-#else
+else
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAG) $@ $?
-#endif
+endif
+
+.PHONY: all
+all: $(NAME)
 
 %.o: %.c
 	$(CC) -I $(INCLUDE) $(CFLAG) -c $? -o $@
 
-.PHONY: all
-all: $(NAME)
- 
 .PHONY: clean
 clean:
 	rm -f $(OBJS) $(OBJS_B)
@@ -59,3 +58,6 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
+
+.PHONY: bonus
+bonus: $(NAME)

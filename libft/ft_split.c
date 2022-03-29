@@ -6,7 +6,7 @@
 /*   By: bolee <bolee@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 15:06:52 by bolee             #+#    #+#             */
-/*   Updated: 2022/03/15 12:38:24 by bolee            ###   ########.fr       */
+/*   Updated: 2022/03/29 13:02:23 by bolee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	**free_all(char ***res)
 	while (**res)
 	{
 		free(**res);
-		*res++;
+		(*res)++;
 	}
 	free(*res);
 	*res = 0;
