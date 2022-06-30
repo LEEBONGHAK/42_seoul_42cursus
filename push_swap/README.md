@@ -11,7 +11,7 @@ $ make
 $ ./push_swap <numbers in stack>
 ```
   
-## Using checker_*
+## Using checker_<OS>
   
 ```
 $ ARG="<numbers in stack>; ./push_swap $ARG | ./check_<OS> $ARG"
