@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef MINITALK_H
 # define MINITALK_H
 
@@ -22,12 +21,23 @@
 # include "./ft_printf/ft_printf.h"
 
 /* sigaction structure */
-typedef struct sigaction t_sigact;
+typedef struct sigaction	t_sigact;
+
+/* structure for client */
+typedef struct s_info
+{
+	int		server_pid;
+	char	*msg;
+}	t_info;
 
 /* in client_utils.c */
-long	get_input_pid(char *pid);
+int		get_input_pid(char *pid);
 
-/* in err_controls.c */
+/* in minitalk_utils.c */
+int		ft_strlen(char *msg);
 void	err_exit(char *str);
+void	success_exit(char *str);
+void	exec_kill(pid_t pid, int signo);
+void	ft_putchar(char c);
 
 #endif

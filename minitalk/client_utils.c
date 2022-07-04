@@ -12,9 +12,9 @@
 
 #include "minitalk.h"
 
-static int	ft_isdigit(int c)
+static int	ft_isdigit(unsigned char c)
 {
-	return (c >= 48 && c <= 57);
+	return (c >= '0' && c <= '9');
 }
 
 static long	ft_atol(const char *str)
@@ -41,10 +41,10 @@ static long	ft_atol(const char *str)
 	return (sign * res);
 }
 
-long	get_input_pid(char *pid)
+int	get_input_pid(char *pid)
 {
 	long	*tmp;
-	long	res;
+	int		res;
 
 	tmp = (long *)malloc(sizeof(long));
 	if (!tmp)
@@ -52,7 +52,7 @@ long	get_input_pid(char *pid)
 	*tmp = ft_atol(pid);
 	if (*tmp > 9999998 || *tmp < 100)
 		err_exit("[ERROR] Invalid Input: Please check input.");
-	res = *tmp;
+	res = (int) *tmp;
 	free(tmp);
 	return (res);
 }
