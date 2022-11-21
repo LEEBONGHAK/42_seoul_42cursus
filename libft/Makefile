@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC			=	cc
+CC		=	cc
 CFLAG		=	-Wall -Werror -Wextra
-AR			=	ar
+AR		=	ar
 ARFLAG		=	rcusv
 CFILES		=	ft_isalpha.c ft_isdigit.c ft_isalnum.c	\
 			ft_isascii.c ft_isprint.c ft_strlen.c \
@@ -31,7 +31,10 @@ BONUS		=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 			ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJS		=	$(CFILES:.c=.o)
 OBJS_B		=	$(BONUS:.c=.o)
-INCLUDE		=	libft.h
+
+INCLUDEDIR	=	./
+INCLUDE		=	ft
+
 NAME		=	libft.a
 
 ifeq ($(MAKECMDGOALS), bonus)
@@ -46,7 +49,7 @@ endif
 all: $(NAME)
 
 %.o: %.c
-	$(CC) -I $(INCLUDE) $(CFLAG) -c $? -o $@
+	$(CC) -I $(INCLUDEDIR) -l $(INCLUDE) $(CFLAG) -c $? -o $@
 
 .PHONY: clean
 clean:
